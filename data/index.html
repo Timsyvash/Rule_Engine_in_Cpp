@@ -1,0 +1,40 @@
+<!DOCTYPE html>
+<html lang="uk">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>ESP8266 Automation Gateway</title>
+    <link rel="stylesheet" href="/style.css">
+</head>
+
+<body>
+    <div class="card">
+        <h1>Шлюз Автоматизації</h1>
+        <p id="status">Завантаження телеметрії...</p>
+        <p id="trigger-log" style="font-weight: bold; color: #d9534f; font-size: 14px; margin-top: 5px;"></p>
+
+        <hr style="margin: 20px 0; border: 0; border-top: 1px solid #ddd;">
+
+        <h3>Конструктор Правил</h3>
+        <div class="rule-form">
+            <label style="font-size: 14px; color: #555;">Якщо відстань (см):</label><br>
+            <select id="ruleOp" style="margin-top: 5px; padding: 6px;">
+                <option value="<">менше ніж (&lt;)</option>
+                <option value=">">більше ніж (&gt;)</option>
+                <option value="==">дорівнює (==)</option>
+            </select>
+            <input type="number" id="ruleVal" placeholder="Порогове значення" value="20"
+                style="margin-top: 5px; padding: 6px; width: 100px;">
+            <br>
+            <button onclick="addRule()" style="margin-top: 10px; background: #28a745;">Додати правило</button>
+        </div>
+
+        <div id="rulesList" style="margin-top: 15px; text-align: left;"></div>
+        <button onclick="saveRules()" style="margin-top: 15px; background: #007bff; width: 100%;">Зберегти правила на
+            плату</button>
+    </div>
+    <script src="/app.js"></script>
+</body>
+
+</html>
